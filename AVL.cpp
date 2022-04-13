@@ -96,6 +96,7 @@ bool AVL::erase(Node *& T, int data) {
 				delete victim;
 				cout << "remove one child (right)" << endl;
 				treeSize--;
+				T->updateHeight();
 				return true;
 			}
 			//CASE 2.5: ONE CHILD (left)
@@ -109,6 +110,7 @@ bool AVL::erase(Node *& T, int data) {
 				delete victim;
 				cout << "remove one child (left)" << endl;
 				treeSize--;
+				T->updateHeight();
 				return true;
 			}
 			//CASE 3: ONE CHILD (left) or TWO CHILDREN
@@ -170,7 +172,7 @@ Node* AVL::balance(Node * T) {
 		int balance = getBalance(T);
 		cout << "Balance: " << balance << endl;
 		if (balance > 1) {
-			if (getBalance(T->leftChild) > 0) {
+			if (getBalance(T->leftChild) >= 0) {
 				T = rotateRight(T);
 			}
 			else {
@@ -179,7 +181,7 @@ Node* AVL::balance(Node * T) {
 			}
 		}
 		else if (balance < -1) {
-			if (getBalance(T->rightChild) < 0) {
+			if (getBalance(T->rightChild) <= 0) {
 				T = rotateLeft(T);
 			}
 			else {

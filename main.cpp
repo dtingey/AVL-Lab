@@ -26,6 +26,26 @@ int main() {
 	std::string temp; // used to store the current instruction
 	AVL* avlptr = NULL;//the AVL
 
+	/*//test code
+	avlptr = new AVL();
+	avlptr->add(1);
+	avlptr->printTree();
+	avlptr->add(2);
+	avlptr->printTree();
+	avlptr->add(3);
+	avlptr->add(4);
+	avlptr->add(5);
+	avlptr->add(6);
+	avlptr->add(7);
+	avlptr->add(8);
+	avlptr->printTree();
+	avlptr->add(9);
+	avlptr->printTree();
+	avlptr->remove(6);
+	avlptr->printTree();
+	return 0;
+	//end test code */
+
 	for (int i = 0; i < NUM_FILES; i++) {
 		ifs.open(fileArray[i]); // open the file to read from
 		ofs.open("out_" + fileArray[i]); // open the file to write to
